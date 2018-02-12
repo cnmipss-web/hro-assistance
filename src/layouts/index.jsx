@@ -1,30 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { ThemeProvider } from 'styled-components';
 
 import Header from '../components/Header';
+import theme from '../styles';
 import './index.css';
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="CNMI Public School System Human Resources Office Assistance"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'human resources office assistance' },
+        { name: 'keywords', content: 'cnmi pss, public school system, human resources, assistance' },
       ]}
     />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
-    </div>
+    <ThemeProvider theme={theme} >
+      <div>
+        <Header />
+        <div
+          style={{
+            margin: '0 auto',
+            maxWidth: 960,
+            padding: '0px 1.0875rem 1.45rem',
+            paddingTop: 0,
+          }}
+        >
+          {children()}
+        </div>
+      </div>
+    </ThemeProvider>
   </div>
 );
 
