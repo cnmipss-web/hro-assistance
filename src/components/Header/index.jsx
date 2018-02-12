@@ -1,33 +1,57 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
+const Header = props => (
+  <HeaderBox>
+    <HeaderTitle>
+      CNMI PSS HRO Assistance
+    </HeaderTitle>
+    <UserInfo>
+      {props.currentUser}
+      <LoginButton
+        tabIndex="0"
+        onClick={() => {}}
+      >
+        {props.currentUser ? 'Logout' : 'Login'}
+      </LoginButton>
+    </UserInfo>
+  </HeaderBox>
 );
 
+Header.propTypes = {
+  currentUser: PropTypes.string.isRequired,
+};
+
 export default Header;
+
+const HeaderBox = styled.div`
+  background: ${props => props.theme.header.backgroundColor};
+  color: ${props => props.theme.header.color};
+  height: 50px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const HeaderTitle = styled.h1`
+  margin: 15px;
+  font-size: 1.25rem;
+`;
+
+const UserInfo = styled.div`
+  margin: 15px;
+  font-size: 1rem;
+`;
+
+const LoginButton = styled.button`
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+`;
