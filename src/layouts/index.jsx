@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import Header from '../components/Header';
 import theme from '../styles';
@@ -19,16 +19,9 @@ const TemplateWrapper = ({ children }) => (
     <ThemeProvider theme={theme} >
       <div>
         <Header />
-        <div
-          style={{
-            margin: '0 auto',
-            maxWidth: 960,
-            padding: '0px 1.0875rem 1.45rem',
-            paddingTop: 0,
-          }}
-        >
+        <Main>
           {children()}
-        </div>
+        </Main>
       </div>
     </ThemeProvider>
   </div>
@@ -39,3 +32,9 @@ TemplateWrapper.propTypes = {
 };
 
 export default TemplateWrapper;
+
+const Main = styled.main`
+  width: 100%;
+  margin-top: ${props => props.theme.header.height};
+  padding: 15px;
+`;
