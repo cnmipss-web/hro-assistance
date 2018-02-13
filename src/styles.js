@@ -29,6 +29,7 @@ const fonts = {
 const header = {
   backgroundColor: colors.blue,
   color: colors.white,
+  height: '50px',
 };
 
 const a11y = {
