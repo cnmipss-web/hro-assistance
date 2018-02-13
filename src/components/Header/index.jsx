@@ -28,7 +28,7 @@ export default Header;
 const HeaderBox = styled.div`
   background: ${props => props.theme.header.backgroundColor};
   color: ${props => props.theme.header.color};
-  height: 50px;
+  height: ${props => props.theme.header.height};
   left: 0;
   position: fixed;
   top: 0;
