@@ -5,6 +5,7 @@ module.exports = {
             "components": [ "Link" ],
             "specialLink": [ "to", "hrefLeft", "hrefRight" ],
             "aspects": [ "noHref", "invalidHref", "preferButton" ]
-          }]
+          }],
+        "no-use-before-define": ["error", "nofunc"]
     }
 };
